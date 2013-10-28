@@ -14,7 +14,8 @@
         (if file-path
             (if (file-exists? file-path)
                 (let-values ([(collection-base _2 _3)
-                              (split-path (collection-file-path name base))])
+                              (split-path (collection-file-path (λ (_) (values "" #f #f))
+                                                                name base))])
                   collection-base)
                 #f)
             #f))
